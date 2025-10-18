@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "backend-tour-management-system",
   "version": "1.0.0",
   "description": "",
