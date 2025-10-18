@@ -1,11 +1,10 @@
 import { Server } from "http";
-import express, { type Request, type Response } from "express";
 import mongoose from "mongoose"
+import app from "./app.js";
 
-
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let server: Server;
-const app = express();
+
 
 const startServer = async () => {
     try {
@@ -22,9 +21,15 @@ const startServer = async () => {
 
 startServer()
 
-app.get("/", (req: Request, res: Response) => {
-    res.status(200).json({
-        message: "Welcome to server backend system"
-    });
 
-})
+// process.on("unhandledRejection", () => {
+//     console.log("Unhandled Rejection..... Shutting down.....")
+//     if (server) {
+//         server.close(() => {
+//             process.exit(1)
+//         })
+//     }
+//     process.exit(1)
+// })
+
+// Promise.reject(new Error ("I for got to catching the error"))
