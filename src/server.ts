@@ -1,8 +1,7 @@
 import { Server } from "http";
-import express from "express";
+import express, { type Request, type Response } from "express";
 import mongoose from "mongoose"
-import type Request = require("express");
-import type Response = require("express");
+
 
 
 let server: Server;
@@ -25,7 +24,7 @@ startServer()
 
 app.get("/", (req: Request, res: Response) => {
     res.status(200).json({
-    message: "Welcome to server backend system"
-});
+        message: "Welcome to server backend system"
+    });
 
 })
