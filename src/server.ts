@@ -1,6 +1,8 @@
 import { Server } from "http";
 import mongoose from "mongoose"
 import app from "./app.js";
+import { envVars } from "./app/config/env.js";
+
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 let server: Server;
@@ -8,11 +10,12 @@ let server: Server;
 
 const startServer = async () => {
     try {
-        await mongoose.connect("mongodb+srv://todoList-backend:uDcD7NJYbyWh1jDB@cluster0.ameizfp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-        console.log("Connected to the DB")
+        await mongoose.connect(envVars.DB_URL)
 
-        server = app.listen(5000, () => {
-            console.log("Server is listing the Port 5000")
+        console.log('connected to db')
+
+        server = app.listen(envVars.PORT, () => {
+            console.log(`Server is listing the Port ${envVars.PORT}`)
         })
     } catch (error) {
         console.log(error)
