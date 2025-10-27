@@ -11,14 +11,16 @@ const createUser = async (req: Request, res: Response) => {
         })
 
         res.status(201).json({
-            message: "User create successfuly done"
+            message: "User create successfuly done",
+            user
         })
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
         console.log(err);
         res.status(400).json({
-            message: `Something went wrong!!! ${err.message}`
+            message: `Something went wrong!!! ${err.message}`,
+            err
         })
     }
 }
