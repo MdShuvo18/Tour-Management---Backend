@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 import { IsActive, Role, type IAuthProvider, type Iuser } from "./user.interface.js";
 
 
@@ -40,3 +40,7 @@ const userSchema = new Schema<Iuser>({
         versionKey: false
 
     })
+
+export const User = model<Iuser>("User",userSchema)    
+
+    
